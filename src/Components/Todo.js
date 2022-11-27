@@ -20,7 +20,10 @@ const Todo = ({ todos, completeTodo, removeTodo, updateTodo }) => {
   }
 
   return todos.map((todo, index) => (
-    <div className={todo.isComplete ? 'uk-animation-slide-left todo-row complete' : 'uk-animation-slide-left todo-row'} key={index}>
+    <div className={
+        todo.isComplete ? 
+            'uk-animation-slide-left todo-row complete' : 'uk-animation-slide-left todo-row'
+        } key={index} >
         <div className='uk-tile uk-tile-muted-darker uk-padding-small uk-margin-top uk-border-rounded'>
             <div className="uk-text-center uk-grid uk-grid-small uk-flex uk-flex-middle" data-uk-grid>
                 <div className="uk-width-expand@m uk-border-rounded">
