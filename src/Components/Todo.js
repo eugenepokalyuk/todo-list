@@ -1,11 +1,32 @@
 import React, { useState } from 'react';
 import TodoForm from './TodoForm';
 
+// console.log(localStorage.getItem("todos"))
+if(localStorage.getItem("todos")) {
+    if (localStorage.getItem("todos").length > 0) {
+        // for (const key in JSON.parse(localStorage.getItem("todos"))) {
+        //     if (Object.hasOwnProperty.call(JSON.parse(localStorage.getItem("todos")), key)) {
+        //         const element = JSON.parse(localStorage.getItem("todos"))[key];
+        //     }
+        // }
+    } else {
+        console.log("Я совсем пуст")
+    }
+}
+
 const Todo = ({ todos, completeTodo, removeTodo, updateTodo }) => {
   const [edit, setEdit] = useState({
     id: null,
     value: ''
   });
+
+// for (const key in JSON.parse(localStorage.getItem("todos"))) {
+    // if (Object.hasOwnProperty.call(JSON.parse(localStorage.getItem("todos")), key)) {
+    //     const element = JSON.parse(localStorage.getItem("todos"))[key];
+    //     console.log(element);
+    // }
+    // localStorage.getItem("todos")
+// }
 
   const submitUpdate = value => {
     updateTodo(edit.id, value);
@@ -22,10 +43,11 @@ const Todo = ({ todos, completeTodo, removeTodo, updateTodo }) => {
   return todos.map((todo, index) => (
     <div className={
         todo.isComplete ? 
-            'uk-animation-slide-left todo-row complete' : 'uk-animation-slide-left todo-row'
+            'uk-animation-slide-left uk-tile-muted-green uk-border-rounded complete' : 'uk-animation-slide-left uk-tile-muted-darker uk-border-rounded'
         } key={index} >
-        <div className='uk-tile uk-tile-muted-darker uk-padding-small uk-margin-top uk-border-rounded'>
+        <div className='uk-tile uk-padding-small uk-margin-top uk-border-rounded'>
             <div className="uk-text-center uk-grid uk-grid-small uk-flex uk-flex-middle" data-uk-grid>
+                
                 <div className="uk-width-expand@m uk-border-rounded">
                     <div className="uk-card uk-card-default uk-card-body uk-text-left uk-border-rounded">
                         <div key={todo.id} onClick={() => completeTodo(todo.id)}>
