@@ -5,23 +5,24 @@ import Todo from './Todo';
 function TodoList() {
   const [todos, setTodos] = useState([]);
 
-  // if (JSON.parse(localStorage.getItem("todos")).length > 0) {
-  //   setTodos(JSON.parse(localStorage.getItem("todos")));
-  //   console.log("есть что-то");
-  // } else {
-  //   console.log("пусто");
-  // }
-
+  const init = item => {
+    if (localStorage.getItem("todos") && localStorage.getItem("todos").length > 0) {
+        JSON.parse(localStorage.getItem("todos")).forEach(element => {
+            todos.push(element);
+        });
+    }
+  }
+  
   //# add todo
   const addTodo = todo => {
     if (!todo.text || /^\s*$/.test(todo.text)) {
       return;
     }
-    
+
     const newTodos = [todo, ...todos];
 
     localStorage.setItem("todos", JSON.stringify(newTodos));
-
+    console.log("newTodos", newTodos)
     setTodos(newTodos);
   };
   //# update todo
@@ -63,6 +64,7 @@ function TodoList() {
     localStorage.removeItem("todos")
     localStorage.setItem("todos", JSON.stringify(updatedTodos))
   };
+
   return (
     <>
       {/* <h1>What's the Plan for Today?</h1> */}

@@ -1,44 +1,21 @@
 import React, { useState } from 'react';
 import TodoForm from './TodoForm';
-
-// console.log(localStorage.getItem("todos"))
-if(localStorage.getItem("todos")) {
-    if (localStorage.getItem("todos").length > 0) {
-        // for (const key in JSON.parse(localStorage.getItem("todos"))) {
-        //     if (Object.hasOwnProperty.call(JSON.parse(localStorage.getItem("todos")), key)) {
-        //         const element = JSON.parse(localStorage.getItem("todos"))[key];
-        //     }
-        // }
-    } else {
-        console.log("Я совсем пуст")
-    }
-}
-
 const Todo = ({ todos, completeTodo, removeTodo, updateTodo }) => {
-  const [edit, setEdit] = useState({
-    id: null,
-    value: ''
-  });
-
-// for (const key in JSON.parse(localStorage.getItem("todos"))) {
-    // if (Object.hasOwnProperty.call(JSON.parse(localStorage.getItem("todos")), key)) {
-    //     const element = JSON.parse(localStorage.getItem("todos"))[key];
-    //     console.log(element);
-    // }
-    // localStorage.getItem("todos")
-// }
-
-  const submitUpdate = value => {
-    updateTodo(edit.id, value);
-    setEdit({
-      id: null,
-      value: ''
+    const [edit, setEdit] = useState({
+        id: null,
+        value: ''
     });
-  };
+    const submitUpdate = value => {
+        updateTodo(edit.id, value);
+        setEdit({
+            id: null,
+            value: ''
+        });
+    };
 
-  if (edit.id) {
-    return <TodoForm edit={edit} onSubmit={submitUpdate} />;
-  }
+    if (edit.id) {
+        return <TodoForm edit={edit} onSubmit={submitUpdate} />;
+    }
 
   return todos.map((todo, index) => (
     <div className={
@@ -81,5 +58,4 @@ const Todo = ({ todos, completeTodo, removeTodo, updateTodo }) => {
     </div>
   ));
 };
-
 export default Todo;

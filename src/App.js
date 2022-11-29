@@ -5,7 +5,6 @@ import 'uikit/dist/css/uikit.css'
 import 'uikit/dist/js/uikit.js'
 
 import TodoList from './Components/TodoList';
-
 function App() {
     return (
       <div className='todo-app'>
