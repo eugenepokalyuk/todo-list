@@ -1,8 +1,8 @@
 {
   "name": "todo-list",
   "version": "0.1.0",
-  "homepage": "https://eugenepokalyuk.github.io/todo-list",
   "private": true,
+  "homepage":"https://eugenepokalyuk.github.io/calc",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
@@ -15,8 +15,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
+    "predeploy":"npm run build",
+    "deploy":"gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
