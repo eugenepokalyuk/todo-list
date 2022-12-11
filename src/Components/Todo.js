@@ -5,6 +5,7 @@ const Todo = ({ todos, completeTodo, removeTodo, updateTodo, init }) => {
         id: null,
         value: ''
     });
+
     const submitUpdate = value => {
         console.log(value);
         updateTodo(edit.id, value);
@@ -16,9 +17,6 @@ const Todo = ({ todos, completeTodo, removeTodo, updateTodo, init }) => {
     if (edit.id) {
         return <TodoForm edit={edit} onSubmit={submitUpdate} />;
     }
-    // init(todos.map((todo, index)=>{return [todo, index]}));
-    init();
-
   return todos.map((todo, index) => (
     <div className={
         todo.isComplete ? 

@@ -14,9 +14,9 @@ function TodoList() {
     // }
     // todos = []
 
-    if(localStorage.getItem("todos")) {
-      todos.push(...JSON.parse(localStorage.getItem("todos")));
-    }
+    // if(localStorage.getItem("todos")) {
+    //   todos.push(...JSON.parse(localStorage.getItem("todos")));
+    // }
 
     // console.log(todos);
     // console.log(JSON.parse(localStorage.getItem("todos")))
@@ -30,7 +30,7 @@ function TodoList() {
       return;
     }
     // const newTodos = [todo, ...todos];
-    localStorage.setItem("todos", JSON.stringify([todo, ...todos]));
+    // localStorage.setItem("todos", JSON.stringify([todo, ...todos]));
     setTodos([todo, ...todos]);
   };
   //# update todo
@@ -52,7 +52,6 @@ function TodoList() {
   //# remove todo
   const removeTodo = id => {
     const removedArr = [...todos].filter(todo => todo.id !== id);
-    
     setTodos(removedArr);
 
     // localStorage.removeItem("todos");
@@ -87,7 +86,7 @@ function TodoList() {
         completeTodo={completeTodo}
         removeTodo={removeTodo}
         updateTodo={updateTodo}
-        init = {init}
+        // init = {init}
       />
     </>
   );
