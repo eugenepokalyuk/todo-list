@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import TodoForm from './TodoForm';
 const Todo = ({ todos, completeTodo, removeTodo, updateTodo, init }) => {
     const [edit, setEdit] = useState({

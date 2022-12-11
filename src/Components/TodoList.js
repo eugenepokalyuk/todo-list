@@ -5,7 +5,7 @@ import Todo from './Todo';
 function TodoList() {
   const [todos, setTodos] = useState([]);
   
-  function init() {
+  // function init() {
     // if (localStorage.getItem("todos") && localStorage.getItem("todos").length > 0) {
     //   setTodos(
     //     JSON.parse(localStorage.getItem("todos")).forEach(element => {
@@ -22,7 +22,7 @@ function TodoList() {
     // console.log(JSON.parse(localStorage.getItem("todos")))
 
     // console.log("todos", todos)
-  }
+  // }
   
   //# add todo
   const addTodo = todo => {
