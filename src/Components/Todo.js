@@ -1,21 +1,23 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import TodoForm from './TodoForm';
-const Todo = ({ todos, completeTodo, removeTodo, updateTodo }) => {
+const Todo = ({ todos, completeTodo, removeTodo, updateTodo, init }) => {
     const [edit, setEdit] = useState({
         id: null,
         value: ''
     });
     const submitUpdate = value => {
+        console.log(value);
         updateTodo(edit.id, value);
         setEdit({
             id: null,
             value: ''
         });
     };
-
     if (edit.id) {
         return <TodoForm edit={edit} onSubmit={submitUpdate} />;
     }
+    // init(todos.map((todo, index)=>{return [todo, index]}));
+    init();
 
   return todos.map((todo, index) => (
     <div className={
@@ -24,7 +26,7 @@ const Todo = ({ todos, completeTodo, removeTodo, updateTodo }) => {
         } key={index} >
         <div className='uk-tile uk-padding-small uk-margin-top uk-border-rounded'>
             <div className="uk-text-center uk-grid uk-grid-small uk-flex uk-flex-middle" data-uk-grid>
-                
+
                 <div className="uk-width-expand@m uk-border-rounded">
                     <div className="uk-card uk-card-default uk-card-body uk-text-left uk-border-rounded">
                         <div key={todo.id} onClick={() => completeTodo(todo.id)}>
