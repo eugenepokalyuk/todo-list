@@ -67,17 +67,18 @@ function App() {
   //#endregion
   //#region [Actual To-Do]
 
-  const [clicksActual, setClicksActual] = useState(() => {
-    const localData = localStorage.getItem('todos');
-    return localData ? JSON.parse(localData).length > 0 ? JSON.parse(localData).length : [0] : [0]
-  });
+  // const [clicksActual, setClicksActual] = useState(() => {
+  //   const localData = localStorage.getItem('todos');
+  //   return localData ? JSON.parse(localData).length > 0 ? JSON.parse(localData).length : [0] : [0]
+  // });
 
-  const addCounterActual = (clicksActual) => {
-      const newClicksActual = clicksActual++;
-      setClicksActual(newClicksActual);
-      localStorage.setItem('countActualdToDo', JSON.stringify(newClicksActual));
-  };
-
+  // const addCounterActual = (clicksActual) => {
+  //     if (!clicksActual === 0) {
+  //       const newClicksActual = clicksActual++;
+  //       setClicksActual(newClicksActual);
+  //       localStorage.setItem('countActualdToDo', JSON.stringify(newClicksActual));
+  //     }
+  // };
   // const removeCounterActual = () => {
   //   setClicksActual(0);
   //   // console.log(index)
@@ -101,11 +102,11 @@ function App() {
                 <button className='uk-button uk-button-primary uk-border-rounded' onClick={() => {removeCounterRemove();}}>Clear data</button>
               </div>
           </div>
-          <div>
+          {/* <div>
               <div className="uk-card uk-card-primary uk-card-body uk-border-rounded">
                 <p>Active tasks: {clicksActual} </p>
               </div>
-          </div>
+          </div> */}
       </div>
 
       <form
@@ -123,7 +124,7 @@ function App() {
         <div className="uk-width-auto@m uk-visible@s">
             <button type="submit" className="uk-button uk-button-primary uk-border-rounded uk-margin-left" 
               onClick={() => {
-                addCounterActual(clicksActual + 1)
+                // addCounterActual(clicksActual + 1)
                 }}
             >Add To-Do</button>
         </div>
@@ -145,7 +146,7 @@ function App() {
               <button className='uk-button uk-button-danger uk-border-rounded uk-margin-left' 
               onClick={() => {
                 addCounterRemove(clicksRemove + 1);
-                addCounterActual(clicksActual - 1)
+                // addCounterActual(clicksActual - 1)
                 removeTodo(index)
               }}
               >Remove</button>
@@ -166,7 +167,7 @@ function App() {
               <button className='uk-button uk-button-danger uk-border-rounded uk-margin-left' 
               onClick={() => {
                 addCounterRemove(clicksRemove + 1);
-                addCounterActual(clicksActual - 1)
+                // addCounterActual(clicksActual - 1)
                 removeTodo(index)
               }}
               >Remove</button>
