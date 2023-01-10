@@ -3,7 +3,9 @@ import './App.css';
 import 'uikit/dist/css/uikit.css'
 import 'uikit/dist/js/uikit.js'
 import 'uikit/dist/js/uikit-icons.js'
-
+const style = {
+  margin: "0 auto"
+}
 function App() {
   //#region [To-Do]
   const [todos, setTodos] = useState(() => {
@@ -102,7 +104,6 @@ function App() {
           <div>
               <div className="uk-card uk-card-primary uk-card-body uk-border-rounded">
                 <p>Active tasks: {clicksActual} </p>
-                {/* <button className='uk-button uk-button-primary uk-border-rounded' onClick={() => {removeCounterActual();}}>Anulate and remove all tasks</button> */}
               </div>
           </div>
       </div>
@@ -131,7 +132,8 @@ function App() {
         </div>
 
       </form>
-      <ul className='uk-padding-remove-left'>
+
+      <ul className='uk-padding-remove-left uk-visible@s'>
         {todos.map((todo, index) => (
           <li className='uk-card uk-card-default uk-card-body uk-border-rounded uk-margin-top uk-flex uk-flex-middle uk-flex-between' data-uk-scrollspy="cls:uk-animation-slide-left" key={index}>
             {todo.text}
@@ -151,6 +153,28 @@ function App() {
           </li>
         ))}
       </ul>
+      
+      <ul className='uk-padding-remove-left uk-hidden@l'>
+        {todos.map((todo, index) => (
+          <li className='uk-card uk-card-default uk-card-body uk-border-rounded uk-margin-top uk-text-center' data-uk-scrollspy="cls:uk-animation-slide-left" key={index}>
+            <p className='uk-text-left'>{todo.text}</p>
+            <div className='uk-align-center'>
+              <button className='uk-button uk-button-primary uk-border-rounded' onClick={() => {
+                addCounter(clicks + 1);
+                removeTodo(index)
+              }}>Done</button>
+              <button className='uk-button uk-button-danger uk-border-rounded uk-margin-left' 
+              onClick={() => {
+                addCounterRemove(clicksRemove + 1);
+                addCounterActual(clicksActual - 1)
+                removeTodo(index)
+              }}
+              >Remove</button>
+            </div>
+          </li>
+        ))}
+      </ul>
+      
     </div>
   );
 }
