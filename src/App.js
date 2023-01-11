@@ -71,13 +71,13 @@ function App() {
         <div>
           <div className="uk-card uk-card-default uk-card-body uk-border-rounded">
             <p>Completed tasks: {clicks} </p>
-            <button className='uk-button uk-button-primary uk-border-rounded' onClick={() => { removeCounter(); }}>Clear data</button>
+            <button className='uk-button uk-button-danger uk-border-rounded' onClick={() => { removeCounter(); }}>Clear data</button>
           </div>
         </div>
         <div>
-          <div className="uk-card uk-card-secondary uk-card-body uk-border-rounded">
+          <div className="uk-card uk-card-default uk-card-body uk-border-rounded">
             <p>Deleted tasks: {clicksRemove} </p>
-            <button className='uk-button uk-button-primary uk-border-rounded' onClick={() => { removeCounterRemove(); }}>Clear data</button>
+            <button className='uk-button uk-button-danger uk-border-rounded' onClick={() => { removeCounterRemove(); }}>Clear data</button>
           </div>
         </div>
       </div>
