@@ -98,7 +98,7 @@ function App() {
           <button type="submit" className="uk-button uk-button-primary uk-border-rounded uk-margin-left">Add To-Do</button>
         </div>
         <div className="uk-width-auto@m uk-hidden@l">
-          <button type="submit" className="uk-button uk-button-primary uk-width-1-1">Add To-Do</button>
+          <button type="submit" className="uk-button uk-button-primary uk-width-1-1 uk-margin-small-top uk-border-rounded">Add To-Do</button>
         </div>
 
       </form>
